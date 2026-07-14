@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-night-950 text-cream-100 font-body;
+  background-color: #2b0f30;
+  cursor: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+}
+
+::selection {
+  @apply bg-gold-400 text-night-950;
+}
+
+/* thin decorative scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0b26;
+}
+::-webkit-scrollbar-thumb {
+  background: #e9ac3e;
+  border-radius: 8px;
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 30px rgba(245, 199, 107, 0.45);
+}
+
+.paper-texture {
+  background-image: radial-gradient(circle at 20% 20%, rgba(0,0,0,0.03) 1px, transparent 1px),
+    radial-gradient(circle at 80% 60%, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 3px 3px, 4px 4px;
+}
