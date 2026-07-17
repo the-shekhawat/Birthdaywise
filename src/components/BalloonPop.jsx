@@ -207,23 +207,7 @@ export default function BalloonPop() {
       </div>
 
       {/* Revealed Wish Output Boxes */}
-      <div className="mt-10 grid gap-5 sm:grid-cols-2">
-        {balloons
-          .filter((b) => popped[b.id])
-          .map((b) => (
-            <div 
-              key={b.id} 
-              className={`card-reveal flex gap-5 items-center rounded-2xl border ${b.style.border} bg-gradient-to-br ${b.style.glow} from-white dark:from-slate-950/40 to-slate-50 dark:to-slate-950/90 p-6 backdrop-blur-2xl shadow-md dark:shadow-xl dark:shadow-black/40 border-slate-200 transition-all duration-300 hover:border-slate-300 dark:hover:border-white/20`}
-            >
-              <div className={`flex items-center justify-center w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-white/5 shadow-inner ${b.style.text} text-xl shrink-0`}>
-                ✨
-              </div>
-              <p className="text-[15px] font-medium leading-relaxed text-slate-700 dark:text-slate-200 flex-1">
-                {b.wish}
-              </p>
-            </div>
-          ))}
-      </div>
+
     </section>
   )
 }

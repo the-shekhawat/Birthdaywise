@@ -30,7 +30,6 @@ export default function App() {
     <div className="relative min-h-screen">
       <StarsBackground />
       <CursorTrail />
-      <MusicToggle />
 
       {stage === 'lock' && <LockScreen onUnlock={() => setStage('loading')} />}
       {stage === 'loading' && <Loader onDone={() => setStage('landing')} />}
@@ -39,6 +38,7 @@ export default function App() {
 
       {stage === 'site' && (
         <main className="relative">
+          <MusicToggle />
           <div
             className="fixed inset-0 -z-10 bg-center bg-no-repeat bg-[length:50%] opacity-50 pointer-events-none"
             style={{ backgroundImage: "url('/images/bubu-dudu.gif')" }}
