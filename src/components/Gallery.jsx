@@ -15,10 +15,9 @@ export default function Gallery() {
   const [activeTiltId, setActiveTiltId] = useState(null)
   const [tiltStyles, setTiltStyles] = useState({})
 
-  // Generate stable random rotations and tape positions for an authentic scattered look
   const photoModifiers = useMemo(() => 
     PHOTOS.map(() => ({
-      rotate: Math.random() * 6 - 3, // Slightly gentler angles for a premium feel
+      rotate: Math.random() * 6 - 3, 
       tapeX: Math.random() * 20 - 10,
       tapeRotate: Math.random() * 6 - 3
     })), 
@@ -92,8 +91,8 @@ export default function Gallery() {
               onMouseLeave={resetMotion}
               onTouchMove={(e) => handleTouchMove(e, i)}
               onTouchEnd={resetMotion}
-              className={`group relative rounded-sm bg-white p-4 pb-7 shadow-[0_4px_15px_-3px_rgba(0,0,0,0.04),0_10px_30px_-10px_rgba(0,0,0,0.06)] border border-neutral-200/60 ease-out select-none cursor-zoom-in
-                ${isTilting ? 'transition-none' : 'transition-all duration-500 hover:shadow-xl'}`}
+              className={`group relative rounded-sm bg-white p-4 pb-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] border border-neutral-200/80 ease-out select-none cursor-zoom-in w-full flex flex-col items-center justify-between
+                ${isTilting ? 'transition-none' : 'transition-all duration-500 hover:shadow-2xl'}`}
               style={{
                 transform: isTilting 
                   ? tiltStyles.transform 
@@ -102,85 +101,81 @@ export default function Gallery() {
                 zIndex: isTilting ? tiltStyles.zIndex : undefined
               }}
             >
-              {/* Semi-translucent Washi Tape overlay */}
+              {/* Washi Tape */}
               <div 
-                className="absolute -top-3 left-1/2 -translate-x-1/2 h-5 w-20 bg-white/40 backdrop-blur-[1.5px] border-x border-dashed border-neutral-300/30 shadow-[0_1px_2px_rgba(0,0,0,0.01)] pointer-events-none z-30 opacity-75 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute -top-3 left-1/2 -translate-x-1/2 h-5 w-20 bg-white/60 backdrop-blur-[2px] border-x border-dashed border-neutral-300/40 shadow-[0_1px_2px_rgba(0,0,0,0.02)] pointer-events-none z-30"
                 style={{
                   transform: `translateX(calc(-50% + ${modifiers.tapeX}px)) rotate(${modifiers.tapeRotate}deg)`,
                 }}
               />
 
-              {/* Image Container */}
+              {/* Dynamic Aspect Ratio Container */}
               <div 
-                className="overflow-hidden bg-neutral-50 rounded-sm border border-neutral-100 aspect-[4/3] w-full flex items-center justify-center relative"
+                className="overflow-hidden bg-neutral-100 rounded-sm w-full relative flex items-center justify-center min-h-[220px] sm:min-h-[260px]"
                 style={{
                   transform: isTilting ? 'translateZ(16px)' : 'translateZ(0)',
                   transition: isTilting ? 'none' : 'transform 0.4s ease-out'
                 }}
               >
-                {/* Soft ambient reflection background */}
+                {/* Fallback Ambient Blur (Only covers blank space for weirdly shaped image files) */}
                 <img 
                   src={p.src} 
                   alt="" 
-                  className="absolute inset-0 h-full w-full object-cover blur-xl opacity-20 scale-125 pointer-events-none" 
+                  className="absolute inset-0 h-full w-full object-cover blur-2xl opacity-15 pointer-events-none" 
                 />
                 
-                {/* Main image */}
+                {/* Main Clean Image: 100% visible, fully scalable, no clipping */}
                 <img 
                   src={p.src} 
                   alt={p.caption} 
-                  className="relative h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] pointer-events-none z-10" 
+                  className="w-full h-auto max-h-[280px] object-contain relative z-10 transition-transform duration-500 ease-out group-hover:scale-[1.01]" 
                 />
               </div>
               
-              {/* Polaroids Captions (Fixed) */}
+              {/* Card Caption Text */}
               <p 
-                className="handwritten-polaroid mt-4 text-center text-2xl text-neutral-700/90 tracking-wide pointer-events-none select-none"
+                className="handwritten-polaroid mt-4 text-center text-2xl text-neutral-800 tracking-wide pointer-events-none w-full truncate px-1"
                 style={{
-                  transform: isTilting ? 'translateZ(28px)' : 'translateZ(0)',
+                  transform: isTilting ? 'translateZ(24px)' : 'translateZ(0)',
                   transition: isTilting ? 'none' : 'transform 0.4s ease-out'
                 }}
               >
-               
+                {p.caption}
               </p>
             </button>
           )
         })}
       </div>
 
-      {/* Cinematic Lightbox */}
+      {/* Lightbox Overlay */}
       {active && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-950/85 p-4 sm:p-10 cursor-zoom-out animate-lightbox backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-950/90 p-4 sm:p-8 cursor-zoom-out animate-lightbox backdrop-blur-md"
           onClick={() => setActive(null)}
         >
           <div 
-            className="relative rounded-sm bg-white p-5 pb-10 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.5)] max-w-2xl w-full mx-auto border border-white/10"
+            className="relative rounded-sm bg-white p-4 pb-6 shadow-2xl max-w-3xl w-full mx-auto border border-white/5 flex flex-col items-center"
             onClick={(e) => e.stopPropagation()}
           >
             <button 
               onClick={() => setActive(null)}
-              className="absolute -top-10 right-0 sm:right-[-4px] text-white/70 hover:text-white transition-colors duration-200 text-xs font-sans tracking-widest uppercase font-medium"
+              className="absolute -top-8 right-0 text-white/80 hover:text-white transition-colors duration-200 text-xs tracking-widest uppercase font-semibold"
             >
               ✕ Close
             </button>
 
-            <div className="overflow-hidden rounded-sm border border-neutral-100 bg-neutral-50 w-full max-h-[65vh] flex items-center justify-center relative">
-              <img 
-                src={active.src} 
-                alt="" 
-                className="absolute inset-0 h-full w-full object-cover blur-2xl opacity-15 pointer-events-none" 
-              />
+            {/* Complete Lightbox Display Frame */}
+            <div className="overflow-hidden rounded-sm bg-neutral-900/5 w-full flex items-center justify-center relative">
               <img 
                 src={active.src} 
                 alt={active.caption} 
-                className="relative max-h-[65vh] max-w-full object-contain z-10 shadow-sm" 
+                className="w-full h-auto max-h-[70vh] object-contain z-10" 
               />
             </div>
             
-            {/* Lightbox Caption (Fixed) */}
-            <p className="handwritten-polaroid mt-5 text-center text-3xl sm:text-4xl text-neutral-800 tracking-wide">
-             
+            {/* Lightbox Caption Text */}
+            <p className="handwritten-polaroid mt-4 text-center text-3xl text-neutral-800 tracking-wide w-full px-2">
+              {active.caption}
             </p>
           </div>
         </div>
