@@ -36,26 +36,37 @@ export default function App() {
       {stage === 'landing' && <Landing onEnter={() => setStage('transition')} />}
       {stage === 'transition' && <WelcomeTransition onDone={() => setStage('site')} />}
 
+
       {stage === 'site' && (
-        <main className="relative">
-          <MusicToggle />
-          <div
-            className="fixed inset-0 -z-10 bg-center bg-no-repeat bg-[length:50%] opacity-50 pointer-events-none"
-            style={{ backgroundImage: "url('/images/bubu-dudu.gif')" }}
-            aria-hidden="true"
-          />
-          <Hero />
-          <Countdown />
-          <Timeline />
-          <Letter />
-          <UsBears />
-          <Gallery />
-          <Cake />
-          <BalloonPop />
-          <WishWall />
-          <Finale />
-        </main>
-      )}
+  <main className="relative bg-gradient-to-br from-[#fff0f5] via-[#ffb7d5] to-[#f472b6] min-h-screen">
+    <MusicToggle />
+    {/* FIXED BACKDROP LAYER */}
+    <div
+      className="fixed inset-0 z-0 bg-center bg-no-repeat bg-[length:70%_auto] md:bg-[length:35%_auto] opacity-60 pointer-events-none"
+      style={{ 
+        backgroundImage: "url('/images/bubu-dudu.gif')",
+        // Removed mix-blend-multiply to ensure it doesn't turn invisible against the pink gradient
+      }}
+      aria-hidden="true"
+    />
+
+    {/* CONTENT CONTAINERS */}
+    {/* Note: Ensure your components inside don't have heavy, opaque background colors like "bg-white" or "bg-[#ffc1de]". 
+        They should use transparent backgrounds (like "bg-transparent") so this image can shine through them! */}
+    <div className="relative z-10">
+      <Hero />
+      <Countdown />
+      <Timeline />
+      <Letter />
+      <UsBears />
+      <Gallery />
+      <Cake />
+      <BalloonPop />
+      <WishWall />
+      <Finale />
+    </div>
+  </main>
+)}
     </div>
   )
 }

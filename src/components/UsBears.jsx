@@ -52,7 +52,7 @@ export default function UsBears() {
                   className="mt-1 text-base font-medium tracking-wide text-neutral-800 transition-colors duration-300 group-hover:text-neutral-950"
                   style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
                 >
-                  {b.caption}
+                 
                 </p>
               </div>
             )}

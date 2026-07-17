@@ -36,7 +36,7 @@ function RevealItem({ index, item, innerRef }) {
     >
       <div className="absolute left-[15px] top-[46px] md:top-[56px] z-20 flex h-4 w-4 -translate-x-1/2 items-center justify-center md:left-1/2">
         <span className={`absolute h-6 w-6 rounded-full bg-rose-500/20 transition-transform duration-1000 ${visible ? 'animate-ping' : 'scale-0'}`} />
-        <span className={`h-3 w-3 rounded-full border border-slate-950 transition-all duration-700 shadow-md ${visible ? 'scale-110 bg-gradient-to-tr from-amber-400 to-rose-500 shadow-rose-500/50' : 'scale-70 bg-slate-700'}`} />
+        <span className={`h-3 w-3 rounded-full border-2 border-white shadow-md ring-1 ring-slate-300 transition-all duration-700 ${visible ? 'scale-110 bg-gradient-to-tr from-amber-400 to-rose-500 shadow-rose-500/50 ring-rose-300' : 'scale-70 bg-slate-400'}`} />
       </div>
 
       <div className="hidden w-1/2 md:block" />
@@ -48,16 +48,16 @@ function RevealItem({ index, item, innerRef }) {
             : `${alignRight ? 'md:translate-x-8' : 'md:-translate-x-8'} translate-x-6 opacity-0 blur-sm`
           }`}
       >
-        <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/40 via-slate-950/60 to-slate-900/50 p-5 md:p-6 shadow-xl backdrop-blur-xl transition-all duration-500 hover:border-rose-400/30 hover:shadow-2xl hover:shadow-rose-500/5">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent transition-opacity duration-500 group-hover:via-rose-400/20" />
+        <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-white via-slate-50/80 to-white p-5 md:p-6 shadow-xl backdrop-blur-xl transition-all duration-500 hover:border-rose-400/40 hover:shadow-2xl hover:shadow-rose-500/10">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-300/60 to-transparent transition-opacity duration-500 group-hover:via-rose-400/30" />
           
           <div className={`flex flex-col xs:flex-row xs:items-center gap-1.5 md:gap-2.5 text-xl font-extrabold tracking-tight ${alignRight ? 'md:justify-end' : 'justify-start'}`}>
-            <span className="bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text font-mono tracking-wider text-transparent">{item.year}</span>
-            <span className="hidden xs:inline-flex text-rose-400/90 animate-[pulse_2s_infinite]">♥</span>
-            <span className="font-sans text-base md:text-lg tracking-wide text-slate-100 transition-colors duration-300 group-hover:text-white">{item.label}</span>
+            <span className="bg-gradient-to-r from-amber-500 to-rose-600 bg-clip-text font-mono tracking-wider text-transparent">{item.year}</span>
+            <span className="hidden xs:inline-flex text-rose-500 animate-[pulse_2s_infinite]">♥</span>
+            <span className="font-sans text-base md:text-lg tracking-wide text-slate-900 transition-colors duration-300 group-hover:text-slate-950">{item.label}</span>
           </div>
           
-          <p className="mt-2.5 text-sm md:text-[15px] font-medium leading-relaxed text-slate-300/90 transition-colors duration-300 group-hover:text-slate-200">{item.note}</p>
+          <p className="mt-2.5 text-sm md:text-[15px] font-medium leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-700">{item.note}</p>
           <div className="pointer-events-none absolute -bottom-12 -right-12 h-24 w-24 rounded-full bg-rose-500/10 opacity-0 blur-xl transition-opacity duration-700 group-hover:opacity-100" />
         </div>
       </div>
@@ -267,8 +267,8 @@ export default function Timeline() {
       <SectionHeading eyebrow="our constellation" title="A timeline of us" />
       
       <div ref={trackRef} className="relative mx-auto max-w-4xl mt-12 md:mt-20">
-        <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-zinc-800/40 to-transparent pointer-events-none" />
-        <div className="absolute left-[15px] md:left-1/2 top-10 bottom-10 w-[2px] -translate-x-1/2 bg-gradient-to-b from-amber-400/0 via-rose-500/30 to-amber-400/0 pointer-events-none blur-[0.5px]" />
+        <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-slate-300/60 to-transparent pointer-events-none" />
+        <div className="absolute left-[15px] md:left-1/2 top-10 bottom-10 w-[2px] -translate-x-1/2 bg-gradient-to-b from-amber-400/0 via-rose-500/40 to-amber-400/0 pointer-events-none blur-[0.5px]" />
 
         <div
           className="pointer-events-none absolute left-[15px] z-30 -translate-x-1/2 -translate-y-1/2 transition-[top] duration-150 ease-out md:left-1/2"
