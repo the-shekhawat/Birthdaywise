@@ -462,6 +462,19 @@ export default function Letter() {
                 >
                   {wordsArray.map((word, index) => {
                     if (word.trim() === '') {
+                      // Turn newline characters into real <br /> breaks —
+                      // plain whitespace collapses in HTML, so a raw \n
+                      // in site.letter would otherwise just render as a space.
+                      const newlineCount = (word.match(/\n/g) || []).length
+                      if (newlineCount > 0) {
+                        return (
+                          <span key={index}>
+                            {Array.from({ length: newlineCount }).map((_, i) => (
+                              <br key={i} />
+                            ))}
+                          </span>
+                        )
+                      }
                       return <span key={index}>{word}</span>
                     }
                     

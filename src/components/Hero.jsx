@@ -38,7 +38,7 @@ export default function Hero() {
       <div className="absolute right-1/4 bottom-1/4 -z-10 h-[250px] w-[250px] rounded-full bg-[#f472b6]/40 blur-[60px] sm:h-[400px] sm:w-[400px] sm:blur-[100px] lg:h-[600px] lg:w-[600px] lg:blur-[140px] animate-pulse [animation-delay:2.5s]" />
 
       {/* Centered/Offset Dancing Bear Background */}
-      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center opacity-20 md:opacity-30 lg:opacity-40 translate-y-16 md:translate-y-0 md:translate-x-[22vw]">
+      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center  md:opacity-60 lg:opacity-90 translate-y-16 md:translate-y-0 md:translate-x-[22vw]">
         <img
           src="/images/bear-dance.gif"
           alt=""

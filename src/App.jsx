@@ -42,7 +42,7 @@ export default function App() {
     <MusicToggle />
     {/* FIXED BACKDROP LAYER */}
     <div
-      className="fixed inset-0 z-0 bg-center bg-no-repeat bg-[length:70%_auto] md:bg-[length:35%_auto] opacity-60 pointer-events-none"
+      className="fixed inset-0 z-0 bg-center bg-no-repeat bg-[length:70%_auto] md:bg-[length:35%_auto]  pointer-events-none"
       style={{ 
         backgroundImage: "url('/images/bubu-dudu.gif')",
         // Removed mix-blend-multiply to ensure it doesn't turn invisible against the pink gradient

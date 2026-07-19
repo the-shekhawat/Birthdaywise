@@ -24,7 +24,7 @@ export const site = {
     { src: '/images/i-miss-you-bear-milk-and-mocha.gif', caption: 'when you\'re not home' },
   ],
 
-  letter: `**My Dear Behen, ❤️**
+ letter: `My Dear Behen, ❤️
 
 Uff... main kya type karun. 🥹
 
@@ -38,9 +38,7 @@ Mujhe tera mere par haq jatana bhi bahut achha lagta hai, bilkul waise hi jaise 
 
 Main bahut baar sochta hoon ki main tujhe itni importance kyun deta hoon, lekin har baar mujhe bas ek hi jawab milta hai...
 
-"Kyunki tu meri behen hai." ❤️
-
-`,
+"Kyunki tu meri behen hai." ❤️`,
 
   timeline: [
     { year: '2006', label: 'You Arrived', note: 'Jab tu paida hui thi, tab main khud sirf **1 saal ka tha**... par phir bhi woh meri life ke best days mein se ek ban gaya, kyunki us din meri life mein tu aayi thi. ❤️🥹' },

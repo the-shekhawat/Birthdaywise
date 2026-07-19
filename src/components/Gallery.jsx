@@ -140,7 +140,7 @@ export default function Gallery() {
                   transition: isTilting ? 'none' : 'transform 0.4s ease-out'
                 }}
               >
-                {p.caption}
+              
               </p>
             </button>
           )
@@ -175,7 +175,7 @@ export default function Gallery() {
             
             {/* Lightbox Caption Text */}
             <p className="handwritten-polaroid mt-4 text-center text-3xl text-neutral-800 tracking-wide w-full px-2">
-              {active.caption}
+             
             </p>
           </div>
         </div>
